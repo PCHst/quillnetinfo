@@ -1,0 +1,5 @@
+{
+  "folders": [{ "path": "." }],
+  "settings": { "liveServer.settings.port": 5500, "editor.tabSize": 2 },
+  "extensions": { "recommendations": ["ritwickdey.LiveServer"] }
+}
