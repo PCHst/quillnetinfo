@@ -157,3 +157,13 @@ body{background-image:radial-gradient(var(--dots) 1px,transparent 1.2px);backgro
 }
 @media (prefers-reduced-motion:reduce){.pill::before{animation:none}.feat,.mini-doc{transition:none}}
 @media print{.pill::before{animation:none}header,.tg{display:none}}
+
+/* Header: títulos de una sola palabra, chicos, en mayúsculas espaciadas (mismo lenguaje
+   que las etiquetas "eyebrow"). El subrayado violeta aparece solo al pasar el mouse o en la
+   página actual: el violeta queda reservado a lo interactivo. */
+header nav{gap:26px}
+header nav a:not(.btn){font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;position:relative;padding:6px 0;transition:color .2s}
+header nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--violet);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+header nav a:not(.btn):hover::after,header nav a[aria-current]::after,header nav a:not(.btn):focus-visible::after{transform:scaleX(1)}
+header nav .btn{font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:9px 16px}
+@media (prefers-reduced-motion:reduce){header nav a:not(.btn)::after,header nav a:not(.btn){transition:none}}
