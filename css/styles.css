@@ -55,9 +55,10 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 .step i{color:#fff;font-style:normal;display:grid;place-items:center;width:44px;height:44px;background:var(--navy);font-weight:800;margin-bottom:28px}
 .step p{margin-top:12px;color:var(--mute)}
 .zones{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.zones span{font-size:13px;font-weight:600;padding:5px 12px;border:1px solid var(--violet-l);color:var(--violet-l)}
+/* Zonas de los pasos y tarjetas: sin bordes violetas (el violeta queda solo para lo interactivo) */
+.zones span{font-size:13px;font-weight:600;padding:5px 12px;border:1px solid var(--line);color:var(--text)}
 .feats{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:64px}
-.feat{background:var(--surf);padding:36px;border-left:3px solid var(--violet)}
+.feat{background:var(--surf);padding:36px}
 .feat:nth-child(1){grid-column:span 4;background:var(--navy);color:#fff}.feat:nth-child(1) p{color:rgba(255,255,255,.85)}
 .feat:nth-child(2){grid-column:span 2}
 .feat:nth-child(n+3){grid-column:span 2}
@@ -114,7 +115,7 @@ header img.lg-d{filter:drop-shadow(0 0 8px rgba(157,0,255,.4))}
 .zn:hover .zone{stroke-width:2.5}
 /* --- App: lista en tarjetas --- */
 .app ul{gap:12px;margin-top:28px}
-.app li{background:var(--surf);border-left:3px solid var(--violet);padding:16px 20px 16px 24px}
+.app li{background:var(--surf);padding:16px 20px 16px 24px}
 .app li::before{display:none}
 /* --- Plan: lo que no incluye --- */
 .plan li.no{color:var(--mute)}.plan li.no::before{content:"✕ ";color:var(--dim)}
