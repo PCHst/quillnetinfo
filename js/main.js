@@ -12,3 +12,22 @@ else els.forEach(function(el){el.textContent=el.dataset.to+(el.dataset.s||'')});
 // Botón modo claro / oscuro
 (function(){var r=document.documentElement,b=document.getElementById("tg");if(!b)return;b.addEventListener("click",function(){var c=r.getAttribute("data-qn")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"),n=c==="dark"?"light":"dark";r.setAttribute("data-qn",n);try{localStorage.setItem("qn-theme2",n)}catch(e){}})})();
 
+
+// Documentación: vista previa del PDF (se carga solo al abrirla) y botón de copiar referencia
+(function(){
+document.querySelectorAll('[data-preview]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var box=document.getElementById(b.getAttribute('data-preview'));if(!box)return;
+    var open=box.hasAttribute('hidden'),f=box.querySelector('iframe');
+    if(open&&f&&!f.getAttribute('src'))f.setAttribute('src',f.getAttribute('data-src'));
+    if(open)box.removeAttribute('hidden');else box.setAttribute('hidden','');
+    b.setAttribute('aria-expanded',open?'true':'false');
+  });
+});
+var c=document.getElementById('copiar'),t=document.getElementById('cita-txt');
+if(c&&t)c.addEventListener('click',function(){
+  var txt=t.innerText.trim(),old=c.textContent,done=function(){c.textContent=c.getAttribute('data-ok');setTimeout(function(){c.textContent=old},1800)};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,function(){})}
+  else{var r=document.createRange();r.selectNodeContents(t);var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');done()}catch(e){}s.removeAllRanges()}
+});
+})();

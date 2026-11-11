@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Documentación oficial · Quillnet</title>
+<meta name="description" content="Informe escrito completo de Quillnet (Expotec 2026) en español e inglés: arquitectura, análisis de seguridad, pruebas, resultados y plan de mejora.">
+<meta name="color-scheme" content="light dark"><script>var t=null;try{t=localStorage.getItem("qn-theme2")}catch(e){}document.documentElement.setAttribute("data-qn",t==="dark"?"dark":"light")</script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@300;400;600;800&family=Rowdies:wght@300;400;700&display=swap"><link rel="icon" href="assets/img/hub-light.png">
+<link rel="stylesheet" href="css/styles.css"><link rel="stylesheet" href="css/recursos.css"><link rel="stylesheet" href="css/quill.css">
+</head>
+<body>
+<header><div class="wrap"><a href="index.html" aria-label="Quillnet, inicio"><img class="lg-d" src="assets/img/logo-dark.png" alt="Quillnet"><img class="lg-l" src="assets/img/logo-light.png" alt="Quillnet"></a>
+<nav aria-label="Principal"><a href="index.html#problema">El riesgo</a><a href="index.html#como">Cómo funciona</a><a href="index.html#app">La app</a><a href="index.html#seguridad">Seguridad</a><a href="index.html#precio">Precio</a><a href="documentacion.html" aria-current="page">Documentación</a><a href="recursos.html">Recursos</a><a class="btn" href="index.html#contacto">Quiero Quillnet</a><button class="tg" id="tg" type="button" aria-label="Cambiar entre modo claro y oscuro" title="Modo claro / oscuro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button></nav></div></header>
+
+<main id="top">
+<section class="rhero"><div class="wrap">
+<p class="eyebrow">Documentación oficial</p>
+<h1>Informe escrito de Quillnet.</h1>
+<p class="lead">El trabajo escrito completo del proyecto, presentado en Expotec 2026, en español e inglés: marco teórico, diseño, arquitectura, análisis de seguridad, pruebas, resultados y plan de mejora.</p>
+<p class="pill" style="margin:28px 0 0">Datos con corte al 5 de noviembre de 2026</p>
+</div></section>
+
+<section id="informes"><div class="wrap">
+<p class="eyebrow">Descargas</p>
+<h2>Dos versiones, el mismo informe.</h2>
+<div class="docs-grid">
+
+<article class="doc" id="doc-es">
+<div class="doc-head"><span class="lang" aria-hidden="true">ES</span><div><h3>Informe escrito</h3><p>Versión en español · Departamento de TICS, Ciberseguridad</p></div></div>
+<div class="doc-body">
+<dl class="meta"><div><dt>Páginas</dt><dd>116</dd></div><div><dt>Formato</dt><dd>PDF</dd></div><div><dt>Tamaño</dt><dd>≈ 11 MB</dd></div></dl>
+<div class="cta">
+<a class="btn" href="assets/docs/quillnet-informe-escrito-es.pdf" download>Descargar PDF</a>
+<a class="btn ghost" href="assets/docs/quillnet-informe-escrito-es.pdf" target="_blank" rel="noopener">Abrir PDF</a>
+<button class="btn ghost" type="button" data-preview="pv-es" aria-expanded="false" aria-controls="pv-es">Vista previa</button>
+</div>
+<div class="preview" id="pv-es" hidden><iframe data-src="assets/docs/quillnet-informe-escrito-es.pdf#view=FitH" title="Informe escrito de Quillnet (español)"></iframe><p class="hint">Si tu navegador no muestra la vista previa, usa “Abrir PDF” o descarga el PDF.</p></div>
+</div></article>
+
+<article class="doc" id="doc-en">
+<div class="doc-head"><span class="lang" aria-hidden="true">EN</span><div><h3>Written report</h3><p>English version · IT Department, Cybersecurity</p></div></div>
+<div class="doc-body">
+<dl class="meta"><div><dt>Pages</dt><dd>112</dd></div><div><dt>Format</dt><dd>PDF</dd></div><div><dt>Size</dt><dd>≈ 11 MB</dd></div></dl>
+<div class="cta">
+<a class="btn" href="assets/docs/quillnet-written-report-en.pdf" download>Download PDF</a>
+<a class="btn ghost" href="assets/docs/quillnet-written-report-en.pdf" target="_blank" rel="noopener">Open PDF</a>
+<button class="btn ghost" type="button" data-preview="pv-en" aria-expanded="false" aria-controls="pv-en">Preview</button>
+</div>
+<div class="preview" id="pv-en" hidden><iframe data-src="assets/docs/quillnet-written-report-en.pdf#view=FitH" title="Quillnet written report (English)"></iframe><p class="hint">If your browser can’t show the preview, use “Open PDF” or download the PDF.</p></div>
+</div></article>
+
+</div></div></section>
+
+<section id="resumen"><div class="wrap">
+<p class="eyebrow">Resumen</p>
+<h2>Qué demuestra el informe, y qué no.</h2>
+<p class="lead" style="margin-top:24px">Un gateway Zero Trust sobre Raspberry Pi 4 para proteger los dispositivos IoT de un hogar, validado con una encuesta, pruebas ofensivas y pruebas automatizadas.</p>
+<div class="findings">
+<article class="finding"><h3>Lo que se construyó</h3><p>Red del hogar en 4 VLAN (usuarios, cámaras, asistentes de voz y Smart TV), firewall nftables que niega todo por defecto e inspección en línea con Suricata como sistema de prevención de intrusiones.</p></article>
+<article class="finding"><h3>Lo que se verificó</h3><p>A 5 de noviembre de 2026: bloqueo en línea de un beacon real del framework Covenant y confirmación de que el tráfico MQTT sin cifrar hacia un broker público no salió de la red.</p></article>
+<article class="finding warn"><h3>Lo que queda pendiente</h3><p>El tráfico dentro de una misma VLAN no pasa por el gateway y por tanto no se inspecciona. Esa limitación, junto con las demás pruebas pendientes, está en el plan de mejora del informe.</p></article>
+</div>
+<p class="note" style="margin-top:20px">Investigación: encuesta a 112 hogares costarricenses, pruebas de seguridad desde Kali Linux y pruebas automatizadas del backend. Palabras clave: IoT, Zero Trust, segmentación de red, VLAN, IPS, Suricata, Raspberry Pi, hogar inteligente.</p>
+</div></section>
+
+<section id="cifras"><div class="wrap">
+<p class="eyebrow">Cifras clave</p>
+<h2>Los números del informe.</h2>
+<div class="kpis">
+<div class="kpi"><b>112</b><span>hogares costarricenses encuestados</span><small>Muestra no probabilística, 81,3 % en San José</small></div>
+<div class="kpi"><b>52,246</b><span>reglas de detección cargadas en Suricata</span><small>12,860 de ellas en modo bloqueo (drop)</small></div>
+<div class="kpi"><b>13</b><span>tipos de ataque clasificados en las alertas</span><small>Informe escrito, Cap. III</small></div>
+<div class="kpi"><b>238</b><span>pruebas automatizadas del backend</span><small>Al corte del 5 de noviembre de 2026</small></div>
+<div class="kpi"><b>₡127,900</b><span>inversión en hardware del prototipo</span><small>Raspberry Pi 4 (₡110,500) + TP-Link EAP110 (₡17,400)</small></div>
+<div class="kpi"><b>₡3,500</b><span>por hogar al mes, precio proyectado</span><small>Escenario hipotético con un proveedor de internet</small></div>
+</div></div></section>
+
+<section id="contenido"><div class="wrap">
+<p class="eyebrow">Contenido</p>
+<h2>Qué hay en cada capítulo.</h2>
+<p class="lead" style="margin-top:24px">Cada enlace abre el PDF directamente en la sección indicada.</p>
+<table class="toc">
+<thead><tr><th>Sección</th><th>De qué trata</th><th>Ir a la página</th></tr></thead>
+<tbody>
+<tr><td>Resumen</td><td>Problema, solución y resultados en una página.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=2">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=2">EN</a></td></tr>
+<tr><td>Capítulo I<p>Planteamiento</p></td><td>Objetivo general y específicos, justificación, definición y análisis del problema, pregunta de investigación.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=5">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=5">EN</a></td></tr>
+<tr><td>Capítulo II<p>Marco teórico</p></td><td>IoT y estadísticas actualizadas, protocolos y vulnerabilidades, Zero Trust, segmentación, Purple Team, soluciones del mercado y casos reales documentados.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=10">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=9">EN</a></td></tr>
+<tr><td>Capítulo III<p>Metodología y desarrollo</p></td><td>Diseño de la investigación, justificación del stack técnico y arquitectura por capas.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=18">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=16">EN</a></td></tr>
+<tr class="sub"><td>· Arquitectura por capas</td><td>Red, firewall, IPS, backend, base de datos y frontend.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=27">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=24">EN</a></td></tr>
+<tr class="sub"><td>· Gestión administrativa y financiera</td><td>Roles, presupuesto del prototipo, modelo de suscripción y curva de adopción a 18 meses.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=47">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=43">EN</a></td></tr>
+<tr class="sub"><td>· Diagrama de infraestructura</td><td>Red privada y red pública, direccionamiento, servicios y puertos.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=55">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=51">EN</a></td></tr>
+<tr class="sub"><td>· Análisis de seguridad</td><td>Activos, tríada CIA, vulnerabilidades, amenazas, riesgos y medidas de seguridad.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=58">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=54">EN</a></td></tr>
+<tr class="sub"><td>· Análisis de resultados</td><td>Pruebas ofensivas, bloqueo en línea y hallazgos, con imágenes de evidencia.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=75">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=70">EN</a></td></tr>
+<tr class="sub"><td>· Plan de mejora</td><td>Limitaciones identificadas y pruebas pendientes.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=83">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=78">EN</a></td></tr>
+<tr><td>Capítulo IV<p>Cierre</p></td><td>Conclusiones generales y recomendaciones, para la actualidad del proyecto y para su desarrollo futuro.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=86">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=81">EN</a></td></tr>
+<tr><td>Bibliografía</td><td>Fuentes citadas en el informe.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=98">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=93">EN</a></td></tr>
+<tr><td>Anexos</td><td>Material de apoyo.</td><td class="links"><a href="assets/docs/quillnet-informe-escrito-es.pdf#page=102">ES</a><a href="assets/docs/quillnet-written-report-en.pdf#page=98">EN</a></td></tr>
+</tbody></table>
+</div></section>
+
+<section id="infraestructura"><div class="wrap">
+<p class="eyebrow">Infraestructura</p>
+<h2>Del dispositivo de la casa al usuario en la nube.</h2>
+<p class="lead" style="margin-top:24px">Diagrama de conexión y procesos del Capítulo III: la red local Zero Trust, el gateway y los servicios en la nube. La Raspberry Pi siempre inicia la conexión; desde internet no entra nada a la casa.</p>
+<figure class="figure infra">
+<a class="shot" href="assets/img/infraestructura.webp" target="_blank" rel="noopener" aria-label="Abrir el diagrama de infraestructura en tamaño completo"><img src="assets/img/infraestructura.webp" alt="Diagrama de infraestructura de red de Quillnet: dispositivos de la casa, VLAN, access point, Raspberry Pi, hotspot, internet y servicios en Render" loading="lazy" width="2600" height="1647"></a>
+<figcaption class="figcap">Infraestructura de red · Quillnet. Toca la imagen para verla en tamaño completo.</figcaption>
+</figure>
+</div></section>
+
+<section id="citar"><div class="wrap">
+<p class="eyebrow">Cómo citar</p>
+<h2>Referencia sugerida.</h2>
+<div class="cite">
+<div>
+<blockquote id="cita-txt">Arias Gutierrez, S., Campos Gomez, I., Chinchilla Bonilla, J., Montero Naranjo, J., Piedra Chaves, I., &amp; Valverde Rodriguez, J. (2026). <em>Quillnet</em> [Informe escrito]. CEDES Don Bosco, Departamento de TICS, Ciberseguridad. Expotec 2026.</blockquote>
+<button class="btn ghost copy" type="button" id="copiar" data-ok="Copiado ✓">Copiar referencia</button>
+</div>
+<aside class="cover">
+<h3>Portada del informe</h3>
+<p><b>Institución</b> · CEDES Don Bosco</p>
+<p><b>Departamento</b> · TICS, Ciberseguridad</p>
+<p><b>Integrantes</b> · Santiago Arias, Isaac Campos, Joaquín Chinchilla, Jazmin Montero, Isaac Piedra y Jimena Valverde</p>
+<p><b>Evento</b> · Expotec 2026</p>
+</aside>
+</div>
+</div></section>
+
+<section class="end"><div class="wrap">
+<h2>Tu hogar inteligente merece un guardián.</h2>
+<p class="lead">Sé de los primeros en proteger tu casa con Quillnet.</p>
+<a class="btn" href="index.html#contacto">Quiero Quillnet</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<div><img class="lg-d" src="assets/img/logo-dark.png" alt="Quillnet"><img class="lg-l" src="assets/img/logo-light.png" alt="Quillnet"><p>Proyecto de Ciberseguridad · Departamento de TICS · Expotec 2026</p><p class="links"><a href="index.html">Inicio</a><a href="documentacion.html">Documentación</a><a href="recursos.html">Recursos</a></p></div>
+<div><p>Santiago Arias · Isaac Campos · Joaquín Chinchilla</p><p>Jazmin Montero · Isaac Piedra · Jimena Valverde</p></div>
+</div></footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
