@@ -31,7 +31,7 @@ body{background-image:radial-gradient(var(--dots) 1px,transparent 1.2px);backgro
 
 /* Tarjetas redondeadas */
 .feat,.test,.tip,.gloss>div,.card,.plan,.facts,.steps,.chips li,.app li,.phone{border-radius:var(--card-r)}
-.feat,.tip,.gloss>div,.chips li,.app li{border-left-width:3px}
+.feat,.tip,.gloss>div,.app li{border-left-width:3px}
 .steps{overflow:hidden}
 .facts{overflow:hidden}
 .feat{transition:transform .25s ease,box-shadow .25s ease}

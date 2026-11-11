@@ -122,7 +122,8 @@ nav a[aria-current]{color:var(--text)}
 footer .links{margin-top:10px}footer .links a{margin-right:16px}
 
 /* --- Seguridad, proceso, galería --- */
-.chips{display:flex;flex-wrap:wrap;gap:12px;margin:40px 0 0;padding:0}.chips li{list-style:none;background:var(--surf);border-left:3px solid var(--violet);padding:14px 22px;color:var(--mute)}.chips b{display:block;font:700 26px "Rowdies",sans-serif;color:var(--text)}
+/* Chips: sin borde lateral de color, contenido y fila centrados */
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:40px 0 0;padding:0}.chips li{list-style:none;background:var(--surf);border:0;padding:14px 22px;color:var(--mute);text-align:center}.chips b{display:block;font:700 26px "Rowdies",sans-serif;color:var(--text)}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}.card{background:var(--surf);padding:32px}.card ul{margin:16px 0 0;padding-left:20px;color:var(--mute);display:grid;gap:10px}
 @media (max-width:900px){.cards{grid-template-columns:1fr}}
 header a:first-child{flex-shrink:0}
